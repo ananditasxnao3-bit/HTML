@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<style>
+			body {
+				background-image: 
+				url('./Background/strawbee.png');
+				background-repeat: repeat;
+			}
+			.box {
+				height: 70%;
+				width: 50%;
+				margin: 0 auto;
+				background-color: #bfe6b2;
+				border-color: #b2e6b2;
+			}
+			.border img{
+			margin: -2px ;
+			padding: 0px;
+			}
+			.stickers{
+			padding: 20px;
+			 padding-right: 0px;
+			 margin-right : -50px
+			}
+			.stickers img {
+			margin: 2px ;
+			}
+			.stickers img:hover,
+			.stickers img:focus{
+			width:148px;
+			height:84px;
+			}
+		</style>
+	</head>
+	<body>
+		<br>
+		<br>
+		<br>
+		<div class="box"  >
+			<div class="border">
+				<img src="./Stickers/border.gif" alt="<3" width="84" height="80" onclick="playSound()">
+				<img src="./Stickers/border.gif" alt="<3" width="84" height="80" onclick="playSound()">
+				<img src="./Stickers/border.gif" alt="<3" width="85" height="80" onclick="playSound()">
+				<img src="./Stickers/border.gif" alt="<3" width="85" height="80" onclick="playSound()">
+				<img src="./Stickers/border.gif" alt="<3" width="85" height="80" onclick="playSound()">
+				<img src="./Stickers/border.gif" alt="<3" width="85" height="80" onclick="playSound()">
+				<img src="./Stickers/border.gif" alt="<3" width="84" height="80" onclick="playSound()">
+				<img src="./Stickers/border.gif" alt="<3" width="84" height="80" onclick="playSound()">
+			</div>
+			<div class="stickers">
+				<img src="./Stickers/7.gif" alt="<3" > <!-- width="118" height="67"> -->
+				<img src="./Stickers/11.gif" alt="<3"> 
+				<img src="./Stickers/55.gif" alt="<3"> 
+				<img src="./Stickers/35.gif" alt="<3"> 
+				<img src="./Stickers/1.gif" alt="<3"> 
+				<img src="./Stickers/65.gif" alt="<3"> 
+				<img src="./Stickers/3.png" alt="<3">  
+				<img src="./Stickers/41.png" alt="<3"> 
+				<img src="./Stickers/53.png" alt="<3" width="99" height="56"> 
+				<img src="./Stickers/54.gif" alt="<3"> 
+				<img src="./Stickers/52.gif" alt="<3"> 
+				<img src="./Stickers/89.png" alt="<3">
+				<img src="./Stickers/86.gif" alt="<3"> 
+				<img src="./Stickers/78.gif" alt="<3"> 
+				<img src="./Stickers/23.gif" alt="<3"> 
+				<img src="./Stickers/24.png" alt="<3"> 
+				<img src="./Stickers/27.png" alt="<3"> 
+				<img src="./Stickers/34.png" alt="<3">
+			</div>
+			<button onclick="playSound()">Play Sound</button>
+		</div> 
+		<!-- <img src="./Stickers/footer.png" alt="<3" align="right" > -->
+		<script>
+			function playSound() {
+			var sound = new Audio("https://files.catbox.moe/3rd61i.mp3");
+			sound.play();
+			}
+		</script>	
+	</body>
+</html>

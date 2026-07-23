@@ -1,0 +1,259 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pastel Checklist</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fffafb;
+            color: #5c4146;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .checklist-container {
+            width: 100%;
+            max-width: 700px;
+            background: #ffffff;
+            border: 3px solid #ffd1dc;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(255, 209, 220, 0.3);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            color: #ff8fa3;
+            text-align: center;
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #bfa3a8;
+            font-size: 14px;
+            margin-bottom: 35px;
+            font-style: italic;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .category {
+            background-color: #fff5f7;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px dashed #ffb3c1;
+        }
+
+        .category-title {
+            font-family: 'Fredoka', sans-serif;
+            color: #ff758f;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ffb3c1;
+            border-radius: 4px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            background-color: white;
+        }
+
+        .sub-items {
+            margin-left: 26px;
+            margin-top: 4px;
+            font-size: 13px;
+            color: #8c7377;
+        }
+
+        .sub-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .sub-checkbox {
+            width: 12px;
+            height: 12px;
+            border: 1.5px solid #ffccd5;
+            border-radius: 3px;
+            margin-right: 8px;
+            background-color: white;
+        }
+
+        .notes-section {
+            grid-column: 1 / -1;
+            margin-top: 10px;
+        }
+
+        .notes-box {
+            border: 2px dashed #ffccd5;
+            border-radius: 16px;
+            height: 80px;
+            background-color: #fffafb;
+            padding: 15px;
+            font-size: 13px;
+            color: #bfa3a8;
+        }
+
+        /* Print optimization */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .checklist-container {
+                box-shadow: none;
+                border: 2px solid #ffd1dc;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="checklist-container">
+    <h1>🌸 My Lovely Checklist 🌸</h1>
+    <div class="subtitle">"One small step at a time, with a happy heart!"</div>
+
+    <div class="grid">
+        <!-- MINDSET & SELF-CARE -->
+        <div class="category">
+            <div class="category-title">✨ Mindset & Self-Care</div>
+            <div class="item"><div class="checkbox"></div> Practice optimism</div>
+            <div class="item"><div class="checkbox"></div> Track weight (with kindness)</div>
+            <div class="item"><div class="checkbox"></div> Face care routine</div>
+            <div class="item"><div class="checkbox"></div> Plan a fun trip</div>
+            <div class="item">
+                <div>
+                    <div style="display: flex; align-items: center;"><div class="checkbox"></div> Cafe project</div>
+                    <div class="sub-items">
+                        <div class="sub-item"><div class="sub-checkbox"></div> Delegate tasks to Mom</div>
+                        <div class="sub-item"><div class="sub-checkbox"></div> Supervise & coordinate</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item"><div class="checkbox"></div> Brainstorm side hustle??</div>
+        </div>
+
+        <!-- OUTINGS & DATES -->
+        <div class="category">
+            <div class="category-title">🍰 Fun & Outings</div>
+            <div class="item"><div class="checkbox"></div> Solo date (treat myself!)</div>
+            <div class="item"><div class="checkbox"></div> Date date</div>
+            <div class="item"><div class="checkbox"></div> Spend time outside room</div>
+            <div class="item"><div class="checkbox"></div> Spend time outdoors</div>
+            <div class="item"><div class="checkbox"></div> Watch new shows & movies</div>
+            <div class="item"><div class="checkbox"></div> Discover new music</div>
+        </div>
+
+        <!-- CREATIVE HOBBIES -->
+        <div class="category">
+            <div class="category-title">🎨 Craft & Hobbies</div>
+            <div class="item">
+                <div>
+                    <div style="display: flex; align-items: center;"><div class="checkbox"></div> Play D&D</div>
+                    <div class="sub-items">
+                        <div class="sub-item"><div class="sub-checkbox"></div> Create a character</div>
+                        <div class="sub-item"><div class="sub-checkbox"></div> Play one single game</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item"><div class="checkbox"></div> Read a book</div>
+            <div class="item"><div class="checkbox"></div> Practice digital art</div>
+            <div class="item"><div class="checkbox"></div> Practice non-digital art</div>
+            <div class="item"><div class="checkbox"></div> Make a zine (annotate & show)</div>
+            <div class="item">
+                <div>
+                    <div style="display: flex; align-items: center;"><div class="checkbox"></div> Knit scarves</div>
+                    <div class="sub-items">
+                        <div class="sub-item"><div class="sub-checkbox"></div> For Muskan</div>
+                        <div class="sub-item"><div class="sub-checkbox"></div> For Venu</div>
+                        <div class="sub-item"><div class="sub-checkbox"></div> For Mom</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TECH & HABITS -->
+        <div class="category">
+            <div class="category-title">💻 Tech & Habits</div>
+            <div class="item"><div class="checkbox"></div> Play a game (reduce screen time!)</div>
+            <div class="item"><div class="checkbox"></div> Reduce & log AI usage</div>
+            <div class="item">
+                <div>
+                    <div style="display: flex; align-items: center;"><div class="checkbox"></div> Makeup organization</div>
+                    <div class="sub-items">
+                        <div class="sub-item"><div class="sub-checkbox"></div> Buy makeup / organize stash</div>
+                        <div class="sub-item"><div class="sub-checkbox"></div> Use what I buy!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item"><div class="checkbox"></div> Make personal website</div>
+            <div class="item"><div class="checkbox"></div> Make ordering website</div>
+            <div class="item"><div class="checkbox"></div> Buy a wireless keyboard (Evofox Ronin? Aula M75?)</div>
+        </div>
+
+        <!-- PERSONAL GROWTH -->
+        <div class="category" style="grid-column: 1 / -1;">
+            <div class="category-title">🌸 Connection & Growth</div>
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 10px; padding: 0; background: transparent; border: none;">
+                <div>
+                    <div class="item"><div class="checkbox"></div> Socialize & talk to people</div>
+                    <div class="item"><div class="checkbox"></div> Learn to talk / express clearly</div>
+                    <div class="item"><div class="checkbox"></div> Practice small talk</div>
+                </div>
+                <div>
+                    <div class="item"><div class="checkbox"></div> Be more confident & friendly</div>
+                    <div class="item"><div class="checkbox"></div> Be nicer and kinder</div>
+                    <div class="item"><div class="checkbox"></div> Be more cheerful!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTES -->
+        <div class="notes-section">
+            <div class="notes-box">
+                🌸 Little thoughts, ideas, or reminders go here...
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mock Mail Scan — SAMPLE</title>
+  <style>
+    /* Page sizing for print/screenshot */
+    html,body {
+      height: 100%;
+      margin: 0;
+      background: #e6e6e6; /* scanner bed background */
+      font-family: "Courier New", Courier, monospace;
+    }
+    .scanner {
+      width: 1100px;
+      height: 800px;
+      margin: 40px auto;
+      background-image: url('./Background/bedsheet2.jpg');
+	  ​background-repeat: no-repeat;
+	  background-size: 100% 100%;
+	  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      border: 1px solid #ddd;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .envelope {
+      width: 880px;
+      height: 420px;
+      background: linear-gradient(180deg,#F4F4FC,#e6f7fa);
+      border-radius: 2px;
+      box-shadow: 0 8px 12px rgba(0,0,0.25,0.50);
+      transform: rotate(-3deg);
+      padding: 36px;
+      position: relative;
+      font-size: 24px;
+      color: #000;
+      letter-spacing: 0.6px;
+      box-sizing: border-box;
+    }
+    .address {
+      position: absolute;
+      left: 56%;
+      top: 44%;
+      transform: translate(-50%,-50%);
+      text-align: left;
+      line-height: 1.25;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 28px;
+      color: #121212;
+    }
+    .return {
+      position: absolute;
+      left: 8%;
+      top: 14%;
+      font-size: 14px;
+      color: #666;
+      filter: blur(1px); /* intentionally unreadable */
+    }
+    .postage {
+      position: absolute;
+      right: 40px;
+      top: 36px;
+      width: 90px;
+      height: 60px;
+      background: #f2c94c;
+      border-radius: 4px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#5b3a00;
+      font-weight:700;
+      font-size:14px;
+    }
+	.stamp {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 350px;
+      height: 120px;
+	  background: url('C:\Users\Dell\Downloads\stamp14133_source_1742292897.jpg') no-repeat center;
+      background-size: cover;
+      
+    }
+    /* SAMPLE watermark */
+    .watermark {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%) rotate(-25deg);
+      font-size: 72px;
+      color: rgba(220,20,60,0.18);
+      font-weight:700;
+      letter-spacing: 6px;
+      pointer-events:none;
+      user-select:none;
+      text-transform:uppercase;
+    }
+    /* subtle paper texture overlay */
+    .envelope:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(transparent 80%, rgba(0,0,0,0.008) 100%);
+      mix-blend-mode: multiply;
+      pointer-events:none;
+    }
+    /* small scanner border line */
+    .scan-border {
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed rgba(0,0,0,0.04);
+      pointer-events:none;
+    }
+    /* instructions footer when printed/used */
+    .note {
+      position: absolute;
+      bottom: 8px;
+      left: 12px;
+      font-size: 12px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="scanner" aria-hidden="true">
+    <div class="envelope">
+      <div class="return">Chillhouse Soho Flagship <p>
+	  75 Varick St, New York, NY 10013, United States
+	  <p>
+	  10013-1361</div> 
+      <div class="stamp">
+	  <img src="./Stickers/Triboro2.gif" alt="Trulli" width="100%" height="100%"></div>
+		
+      <div class="address" role="contentinfo">
+        311 BERTRAM AVE<br>
+        STATEN ISLAND, NY 10312-4605
+      </div>
+
+      <div class="watermark">.</div>
+      <div class="scan-border"></div>
+      <div class="note">.</div>
+    </div>
+  </div>
+</body>
+</html>

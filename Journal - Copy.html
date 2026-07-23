@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Guestbook</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,.15);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        button {
+            background: #3ECF8E;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #31b97d;
+        }
+
+        #status {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Guest Book</h2>
+
+    <form id="guestForm">
+        <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+            required
+        >
+
+        <textarea
+            id="message"
+            placeholder="Write your message..."
+            required
+        ></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="status"></div>
+</div>
+
+<script>
+    // Replace these with your Supabase credentials
+    const SUPABASE_URL = "https://ijzkskdqtdculfvqnfdi.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_aQG0ooLtBcy_PZT-e2jIJw_vSzZdB98";
+
+    const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
+    const form = document.getElementById("guestForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        status.textContent = "Saving...";
+        status.className = "";
+
+       const { error } = await supabaseClient
+    .from("NewGuestBook")
+    .insert([
+        {
+            name,
+            message
+        }
+    ]);
+        if (error) {
+            console.error(error);
+
+            status.textContent = "❌ " + error.message;
+            status.className = "error";
+        } else {
+            status.textContent = "✅ Message saved successfully!";
+            status.className = "success";
+
+            form.reset();
+        }
+    });
+</script>
+
+</body>
+</html>
