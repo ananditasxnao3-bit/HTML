@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+  
+	
+	<link rel="stylesheet" href=".\CSS\AIBaseStyle.css">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Guestbook</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+</head>
+<body>
+
+<br>
+<br>
+<br>
+
+<div class="box">
+<div class="container">
+  <div class="header"> <h2>AI Useage Log Book</h2> </div>   
+
+	<div class="menu">
+	Reason : 
+	<br> <br> <br>
+	Justification :
+	<br>
+	</div>
+	<div class="content"> 
+    <form id="guestForm">
+        <input
+            type="text"
+            id="Reason"
+            placeholder="Your Reason"
+            required
+        >
+		
+		<br>
+		<br>
+		
+        <textarea
+            id="Justification"
+            placeholder="Write your message..."
+            required
+        >
+		</textarea>
+		
+		<br>
+		<br>
+		
+        <button type="submit">Submit</button>
+    </form>
+	<br> <br> <br><br> <br> <br>
+	</div>
+	<div class="footer">
+	<h2> You can ignore office and fanfic writing use for now </h2>
+	</div>
+    <div id="status"></div>
+	
+</div>
+</div>
+
+<script>
+    // Replace these with your Supabase credentials
+    const SUPABASE_URL = "https://ijzkskdqtdculfvqnfdi.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_aQG0ooLtBcy_PZT-e2jIJw_vSzZdB98";
+
+    const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
+    const form = document.getElementById("guestForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const Reason = document.getElementById("Reason").value.trim();
+        const Justification = document.getElementById("Justification").value.trim();
+
+        status.textContent = "Saving...";
+        status.className = "";
+
+       const { error } = await supabaseClient
+    .from("AI_Usage")
+    .insert([
+        {
+            Reason,
+            Justification
+        }
+    ]);
+        if (error) {
+            console.error(error);
+
+            status.textContent = "❌ " + error.message;
+            status.className = "error";
+        } else {
+            status.textContent = "✅ Message saved successfully!";
+            status.className = "success";
+
+            form.reset();
+        }
+    });
+</script>
+
+</body>
+</html>
