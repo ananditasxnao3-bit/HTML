@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Guestbook</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+</head>
+<body>
+
+<h1>Data from Database</h1>
+<div id="data-container"></div>
+<div id="holder"></div>
+
+
+<script>
+    // Replace these with your Supabase credentials
+    const SUPABASE_URL = "https://ijzkskdqtdculfvqnfdi.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_aQG0ooLtBcy_PZT-e2jIJw_vSzZdB98";
+
+    const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
+async function fetchData() {
+    
+    
+const { data, error } = await supabaseClient
+    .from("NewGuestBook")
+    .select("*");
+
+if (error) {
+    console.error(error);
+    return;
+}
+
+const box = document.getElementById("data-container");
+box.replaceChildren();
+
+if (!data || data.length === 0) {
+    box.textContent = "No records found.";
+    return;
+}
+
+const table = document.createElement("table");
+table.border = "1";
+
+const header = table.insertRow();
+
+Object.keys(data[0]).forEach(column => {
+    const th = document.createElement("th");
+    th.textContent = column;
+    header.appendChild(th);
+});
+
+data.forEach(row => {
+    const tr = table.insertRow();
+
+    Object.values(row).forEach(value => {
+        const td = tr.insertCell();
+        td.textContent = value == null ? "" :
+            typeof value === "object" ? JSON.stringify(value) :
+            String(value);
+    });
+});
+
+box.appendChild(table);
+}   
+
+document.addEventListener("DOMContentLoaded", fetchData);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Guestbook</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+</head>
+<body>
+
+<h1>Data from Database</h1>
+<div id="data-container"></div>
+<div id="holder"></div>
+
+
+<script>
+    // Replace these with your Supabase credentials
+    const SUPABASE_URL = "https://ijzkskdqtdculfvqnfdi.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_aQG0ooLtBcy_PZT-e2jIJw_vSzZdB98";
+
+    const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
+async function fetchData() {
+    const box = document.getElementById("data-container");
+
+    box.textContent = "Loading data...";
+
+    const { data, error } = await supabaseClient
+        .from("NewGuestBook")
+        .select("*");
+
+    if (error) {
+        console.error("Supabase error:", error);
+        box.textContent = "Error loading data: " + error.message;
+        return;
+    }
+
+    console.log("Table data:", data);
+
+    box.replaceChildren();
+
+    if (!data || data.length === 0) {
+        box.textContent = "No records found.";
+        return;
+    }
+
+    data.forEach(row => {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = JSON.stringify(row, null, 2);
+        box.appendChild(paragraph);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", fetchData);
+   
+   
+</script>
+
+</body>
+</html>
